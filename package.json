@@ -9,7 +9,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.7.3",
+    "parser": "^0.1.4"
+  },
   "devDependencies": {
     "chai": "*",
     "chai-http": "^4.3.0",
