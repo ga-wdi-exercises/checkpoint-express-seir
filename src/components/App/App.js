@@ -6,13 +6,35 @@ import { Route } from 'react-router-dom'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contacts: props.contacts
+    };
+  }
+
+  handleSubmit() {
+    this.setState(prevState => {
+      //Logic to add NewContact info to the state arry here in App wth setState
+    })
+  }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Route path='/' render={(props) => <ContactList {...props}/>} />
-        <Route path='/new-contact' render={() => <NewContact />} />
+        <Route 
+          path='/' 
+          render={(props) => (
+            <ContactList contacts={this.state.contacts} {...props}/>
+          )}
+        />
+        <Route 
+          path='/new-contact'
+          render={(props) => (
+            <NewContact {...props} onSubmit={this.handleSubmit} />
+          )}
+        />
       </div>
     )
   }

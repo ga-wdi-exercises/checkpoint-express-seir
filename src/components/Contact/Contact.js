@@ -1,15 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
 
-function Contact() {
+function Contact(props) {
 
     return (
         <div className='contact'>
-            <img src='https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg' alt='Tweety Bird'></img>
-            <h3>Tweety</h3>
-            <h4>tweety@gmail.com</h4>
+            <img src={props.contact.profile_picture} alt=' '></img>
+            <h3>{props.contact.name}</h3>
+            <h4>{props.contact.email}</h4>
         </div>
     )
 }
 
-export default Contact;
+export default Contact

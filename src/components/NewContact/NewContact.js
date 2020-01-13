@@ -1,24 +1,24 @@
 import React from "react";
 
-function NewContact() {
+function NewContact(props) {
 
     return (
         <div>
-            <h1 className='new-contact'>New Contact</h1>
+            <h1>New Contact</h1>
             <form>
                 <label>
-                    <title>Name:</title>
+                    Name:
                     <input type='text' name='name' />
                 </label>
                 <label>
                     Email:
-                    <input type='text' name='name' />
+                    <input type='text' name='email' />
                 </label>
                 <label>
                     Image:
-                    <input type='text' name='name' />
+                    <input type='text' name='profile_picture' />
                 </label>
-                <input type='submit' value='submit' />
+                <input type='submit' value='Submit' onSubmit={props.onSubmit} />
             </form>
         </div>
     )

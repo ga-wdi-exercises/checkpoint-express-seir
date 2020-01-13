@@ -7,10 +7,10 @@ function Header() {
         <nav>
             <h1 className='header-title'>Contacts</h1>
             <Link to='/' className='header-link'>
-                <span>Home</span>
+                Home
             </Link>
             <Link to='/new-contact' className='header-link'>
-                <span>New Contact</span>
+                New Contact
             </Link>
         </nav>
     )

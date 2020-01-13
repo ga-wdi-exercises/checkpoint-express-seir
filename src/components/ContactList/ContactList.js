@@ -1,22 +1,13 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import Contact from "../Contact/Contact.js";
 
 function ContactList(props) {
 
-    console.log(props)
-
-    const character = props.contact.map(contact => {
-        return(
-            <div className='contact-list' key={contact.name}>
-                {contact.image}
-                {contact.name}
-                {contact.email}
-            </div>
-        )
-    })
-    return (
+    return(
         <div className='contact-list'>
-            {character}
+            {props.contacts.map((contact, i) => {
+                return <Contact key={i} contact={contact} />
+            })}
         </div>
     )
 }
