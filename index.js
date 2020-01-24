@@ -1,4 +1,11 @@
-app.listen(3000, () => console.log('app is running'))
+const express = require('express')
+const app = express()
 
-// DO NOT REMOVE THIS LINE:
-module.exports = app
+app.get('/', (req,res) => {
+    res.send('hitting default route')
+  })
+
+const userController = require('./controllers/users')
+const noteController = require('./controllers/notes')
+
+app.listen(6000, () => console.log("Running on port 6000!"))
