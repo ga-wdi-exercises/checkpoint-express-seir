@@ -1,130 +1,84 @@
-# Checkpoint: React
+# Checkpoint: Express & Mongoose
 
-## Setup
+## Set Up
 
-Fork and clone this repo.
+Fork and clone this repository. After cloning down **your fork**...
 
-**Before you begin anything, run `npm install`.**
+```bash
+ $ cd checkpoint-express-mongoose-short
+ $ npm install
+```
 
-## Before You Begin
+To run the tests in the terminal, run `npm test`.
 
-Every component has a test suite associated with it. There are 18 tests in
-total, grouped into 5 suites.
+- Every time you make a change and save your files, you will need to manually
+  re-run the tests.
+- When you start, all of the tests will be failing; your goal is to make as many
+  pass as you can in the hour provided. There are 18 tests total.
+- Read the output of the failing tests. It will tell you why the test failed.
 
-To run the tests in the terminal, run `npm test`. The tests will rerun every
-time you save a file. When running `npm test` in the root of the repo there is
-an prompt to run all of the tests by entering `a`.
-
-When you start, all of the tests will be failing; your goal is to make as many
-pass as you can in the hour provided.
-
-> HINT: read the output of the failing tests.
-
-> Don't write anything in the `.test.js` files.
+> Note: The test suite is located in `./test`.
 
 ## Instructions
 
-You're going to build a simple contact list manager using React and React
-Router. An initial set of contacts has been provided in `contacts.json` and some
-CSS has been provided in `src/styles/index.css`.
+For this checkpoint, you need to build a simple application for tracking Notes.
 
-> See a demo of the final app at
-> [http://quickest-beam.surge.sh/](http://quickest-beam.surge.sh/)
+### Requirements
 
-Add Tweety as a contact in `contacts.json`:
+1. There is already a `package.json` file with the dependencies necessary for
+   running the tests. You will have to manually `npm install` everything else
+   required to build your application server with Express and Mongoose.
 
-```
-{
-  name: "Tweety",
-  email: "tweety@gmail.com",
-  profile_picture: "https://upload.wikimedia.org/wikipedia/en/0/02/Tweety.svg"
-}
-```
+2. Create a `controllers` directory. Inside `controllers`, create two files:
+   `notes.js` and `users.js`.
 
-### Setup
+3. Set up/build out express properly in your `index.js` file. Include the
+   controllers later, once you've built them.
 
-Inside `index.js`, import React Router and pass it to `ReactDOM.render()` as the
-root component with `<App>` as a child component. We've imported the starter
-contacts for you, pass these in to your `<App>` component as a prop, `contacts`.
+4. Create two models:
 
-### `<App>`
+   A. `Note`, with three fields
 
-Your `<App>` component should accept `contacts` as a prop and use them to set
-the initial state for your component. Setting props as initial state looks like
-this:
+   - `title`
+   - `body`
+   - a ref called `author` to `User`. A note will only be associated with a
+     single user, so this should be a plain object.
 
-```js
-constructor(props) {
-  super(props)
+   B. `User`, with three fields
 
-  this.state = {
-    contacts: props.contacts
-  }
-}
-```
+   - `username`
+   - `email`
+   - a ref called `notes` to `Note`. This should be an array of objects.
 
-Your `<App>` component should also render:
+5. You should have 5 routes. They should return JSON unless otherwise specified.
 
-- A div with a class name of `'App'`
-- Your `<Header>` component
-- Two `<Route />` components
-- If the route is `"/"` then render the `<ContactList>` component; if the route
-  is `"/new-contact"` then render the `<NewContact>` component;
+- `GET '/'` which should redirect to `/notes'
+- `GET '/notes'` which return a list of notes
+- `GET '/notes/:someParameter'` where `:someParameter` grabs a single `Note`
+  from the database by id. **NOTE** You can name `:someParameter` whatever you
+  want 😬
+- `GET '/users'` which will return a list of all users
+- `GET '/users/:someParameter` which will return a single user by id. **NOTE**
+  see previous note.
 
-### `<Header>`
+**NOTES:**
 
-Your `<Header>` component should render:
+- You can refer to previous lessons and notes that you have if you forget
+  syntax.
+- We've provided the necessary configuration for the database connection, some
+  of the Model definition, and some of the basic express app boilerplate. Don't
+  delete any of this! Your task is to add to what is provided.
+- If your tests time-out, don't exit, try hitting `ctrl-c`.
+- Pay attention to when you're returning single values versus multiple values.
+  The tests will only pass for the appropriate types.
+- You don't need to create any data in the database for the tests to pass.
+- If something doesn't work, try reordering it.
+- Test with postman!
+- Do not modify the tests in `tests/index.js`!
 
-- A `<header>` element with an `<h1>`
-- A `<nav>` containing two React Router `<Link>`s, one to the homepage (`"/"`)
-  and the other to create a new contact (`"/new-contact"`).
+## Submission
 
-### `<ContactList>`
+Fork this repository and clone your fork locally. Commit as you go. When you are
+finished, push to GitHub.
 
-`<ContactList>` should take `contacts` as a prop
-
-It should render:
-
-- A `<Contact>` component for each contact object inside of the `contacts` prop.
-- A `<div>` with a class of `contact-list`.
-
-### `<Contact>`
-
-Your `<Contact>` component will render a single contact.
-
-It should render:
-
-- An outer `<div>` with a class of `contact`
-- An include an `<img>` for the `profile_picture`,
-- `<h3>` for the `name`
-- `<h4>` for the `email`.
-
-### `<NewContact>`
-
-Your `<NewContact>` component should render:
-
-- An `<h1>` with a text of `New Contact`
-- A form with inputs for the `name`, `email` and `profile_picture`.
-
-When submitted, you should save the new contact by updating your state inside of
-`<App>` and redirect the user back to the homepage/list of contacts.
-
-## Rubric
-
-- App component is defined and exported
-- App component accepts the `contacts` json objects as a prop and the `contacts`
-  json object is properly passed
-- Router is defined and setup using the browser History API
-- Router includes a route for the homepage (`"/"`) and for the new contact page
-  (`"/new-contact"`)
-- Header component is defined and exported
-- Header component contains a title and two `<Link>`s, one to the homepage and
-  the other to the new contact page
-- ContactList component is defined and exported
-- ContactList component iterates through the contacts, rendering a Contact
-  component for each
-- Contact component is defined and exported
-- Contact component is rendering the image, name and email address of a contact
-- NewContact is defined and exported
-- NewContact contains a form that adds a new contact to the parent App component
-  state
+**Wait until the end of the hour to make your Pull Request**
