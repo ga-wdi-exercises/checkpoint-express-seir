@@ -271,7 +271,7 @@ describe("Routes -", () => {
           .end((err, res) => {
             expect(res.body.username).to.contain(user.username)
             expect(res.body.email).to.contain(user.email)
-            expect(res.body.notes[0]).to.equal(note._id.toString())
+            expect(res.body.notes[0]._id).to.equal(note._id.toString())
             done()
           })
         })
