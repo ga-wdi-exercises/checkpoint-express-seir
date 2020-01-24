@@ -14,6 +14,6 @@ pull: [
 
 })
 
-const noteSchema = mongoose.models("User", noteSchema);
+
 
 module.exports = mongoose.model('Note', noteSchema)
