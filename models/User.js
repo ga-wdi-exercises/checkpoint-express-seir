@@ -5,7 +5,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     notes: [
         {
-            ref: "Note"
+            ref: "Note",
+            type: mongoose.Schema.Types.ObjectId
         }
     ]
 });

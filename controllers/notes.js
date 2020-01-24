@@ -1,5 +1,5 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 const Note = require("../models/Note");
 
 // GET '/' which should redirect to `/notes'
