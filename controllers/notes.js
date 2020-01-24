@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
     console.log(req.params.id)
     const noteId = req.params.id
-    Note.findOne({ id: noteId }).then(note => res.json(note))
+    Note.findOne({ _id: noteId }).then(note => res.json(note))
 })
 
 module.exports = router
