@@ -6,11 +6,17 @@ version: 2
 jobs:
   build:
     docker:
+<<<<<<< HEAD
       # list of images: https://circleci.com/docs/2.0/circleci-images/
       # specify the version you desire here
       - image: circleci/node:8.11-stretch-browsers
       # need this to connect to mongodb
       - image: circleci/mongo:3.6-jessie-ram
+=======
+      # specify the version you desire here
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/node:8.11-stretch-browsers
+>>>>>>> 8982ea0b0506ddcd6aacffaa5db8ec2a69971b86
     steps:
       - checkout
       # Download and cache dependencies
@@ -18,14 +24,21 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: 
+<<<<<<< HEAD
           command: 'npm install'
+=======
+          command: npm install
+>>>>>>> 8982ea0b0506ddcd6aacffaa5db8ec2a69971b86
           name: Install npm packages
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+<<<<<<< HEAD
         
+=======
+>>>>>>> 8982ea0b0506ddcd6aacffaa5db8ec2a69971b86
       # run tests!
       - run: 
           command: 'npm test'
