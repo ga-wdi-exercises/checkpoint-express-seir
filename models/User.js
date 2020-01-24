@@ -5,7 +5,7 @@ const app = require("../index.js");
 const userSchema = new mongoose.Schema({
   username: String,
   email: String,
-  notes: [Note.schema.obj]
+  notes: Note.schema.obj
 });
 
 module.exports = mongoose.model("User", userSchema);
