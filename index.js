@@ -9,11 +9,11 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send('hitting default route')
+    res.redirect('/notes/')
 })
 
-app.use("/notes/", Notes);
-app.use("/users/", Users);
+app.use('/notes/', Notes);
+app.use('/users/', Users);
 
 app.listen(3000, () => console.log('app is running'))
 
