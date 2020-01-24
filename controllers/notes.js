@@ -1,12 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const Note = require('../models/Note');
+const Note = require("../models/Note");
 
-router.get('/', (req, res) => {
-    Note.find().then(notes => res.json(notes));
+router.get("/", (req, res) => {
+  Note.find().then(notes => res.json(notes));
 });
 
-router.get('/:id', (req, res) => {
-    Note.find().then(note => res.json(note));
-})
+router.get("/:id", (req, res) => {
+  Note.find().then(note => res.json(note));
+});
+
+module.exports = router;

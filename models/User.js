@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   notes: [
     {
-      type: mongoose.Schema.type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Note"
     }
   ]
