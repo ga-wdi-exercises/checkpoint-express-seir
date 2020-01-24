@@ -181,6 +181,8 @@ describe("Routes -", () => {
             username: "the_dude",
             email: "dude@thedude.com"
           }).then(user => {
+            console.log(user)
+            console.log(note)
             user.notes.push(note._id)
             note.author = user._id
 
