@@ -2,10 +2,10 @@ const mongoose = require("../db/connection");
 
 const userSchema = new mongoose.Schema({
   username: String,
-  body: String,
+  email: String,
   notes: [
     {
-      type: Schema.type.ObjectId,
+      type: mongoose.Schema.type.ObjectId,
       ref: "Note"
     }
   ]
