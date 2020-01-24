@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  User.find().then(user => res.json(user));
+  User.findOne({ _id: req.params.id }).then(user => res.json(user));
 });
 
 

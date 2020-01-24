@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Note.find().then(note => res.json(note));
+  Note.findOne({_id: req.params.id}).then(note => res.json(note));
 });
 
 module.exports = router;
