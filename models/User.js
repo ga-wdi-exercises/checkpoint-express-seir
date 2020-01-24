@@ -1,5 +1,11 @@
 const mongoose = require('../db/connection')
+const Note = require("./Note");
 
-const userSchema = new mongoose.Schema({})
+const userSchema = new mongoose.Schema({
+    username: String,
+    email: String,
 
-module.exports = mongoose.model('User', userSchema)
+    notes: [Note]
+});
+
+module.exports = mongoose.model('User', userSchema);
